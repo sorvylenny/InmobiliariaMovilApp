@@ -1,0 +1,7 @@
+{
+  "name": "InmobiliariaFloresMApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
