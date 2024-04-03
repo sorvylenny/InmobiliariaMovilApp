@@ -1,0 +1,50 @@
+mat-card{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-top: 18px;
+}
+
+mat-card-title{
+  text-align: center;
+  font-family: Roboto, "Helvetica Neue";
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+mat-card-content{
+  font-weight: 300;
+  font-size: 12px;
+  text-align: justify;
+}
+
+ul{
+  list-style: none;
+}
+
+ul li{
+  display: flex;
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 300;
+}
+.detail-label {
+  margin-right: 5px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+@media only screen and (min-width: 360px) and (max-width: 475px) {
+  mat-card-title{
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  mat-card-content{
+    font-size: 12px;
+  }
+  ul li{
+    font-size: 10px;
+    line-height: 1.0;
+  }
+}

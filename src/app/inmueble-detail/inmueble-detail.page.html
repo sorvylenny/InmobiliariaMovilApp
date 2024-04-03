@@ -1,0 +1,49 @@
+<app-toolbar (backClicked)="goToback()"></app-toolbar>
+
+<ion-content collapse="condense" class="ion-padding" [fullscreen]="true">
+  <div >
+    <ion-card class="card" *ngIf="propiety">
+      <ion-card-header class="card-header">
+        <app-smallmap [longitude]="propiety.longitude" [latitude]="propiety.latitude" class="image map-container"></app-smallmap>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-card-title class="name">{{propiety.title}}</ion-card-title>
+        <div class="card-body">
+          <ion-icon name="pin-outline"></ion-icon>
+          <ion-card-subtitle>{{propiety.address}}</ion-card-subtitle>
+        </div>
+        <div class="department">
+          <ion-icon name="business-outline"></ion-icon>
+          <ion-card-subtitle>{{propiety.department}}</ion-card-subtitle>
+          <ion-icon name="location-outline"></ion-icon>
+          <ion-card-subtitle>{{propiety.city}}</ion-card-subtitle>
+        </div>
+        <p class="description">
+          {{propiety.description}}
+        </p>
+      </ion-card-content>
+      <div class="date">
+        <ion-icon name="calendar-number-outline"></ion-icon>
+        <ion-card-subtitle>{{propiety.createdAt | date: 'dd/MM/yyyy'}}</ion-card-subtitle>
+        <ion-icon name="calendar-outline"></ion-icon>
+        <ion-card-subtitle>{{propiety.updatedAt | date: 'dd/MM/yyyy'}}</ion-card-subtitle>
+      </div>
+      <br>
+     <div class="card-footer">
+      <div class="stats">
+        <ion-icon color="dark" src="assets/armario.svg"></ion-icon> <!-- Icono de armario -->
+        <span class="value">{{ propiety.closet !== null && propiety.closet !== undefined ? propiety.closet : 0 }}</span>
+        <ion-icon src="assets/bathroom.svg"></ion-icon> <!-- Icono de baño -->
+        <span class="value">{{ propiety.bathrooms }}</span>
+        <ion-icon name="bed"></ion-icon> <!-- Icono de dormitorio -->
+        <span class="value">{{ propiety.bedrooms }}</span>
+      </div>
+     </div>
+     <div class="card__price" title="{{propiety.price | currency:'USD':'symbol':'1.0-0'}}">
+      {{propiety.price | currency:'USD':'symbol':'1.0-0'}}
+    </div>
+    </ion-card>
+  </div>
+</ion-content>
+
+<app-footer></app-footer>

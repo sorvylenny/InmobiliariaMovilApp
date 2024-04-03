@@ -1,20 +1,93 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<app-toolbar (goToLoginClicked)="goToIn()"></app-toolbar>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-content>
+  <ion-card class="card-search">
+    <ion-card-header>
+      <ion-card-title class="title-search">Buscar</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12">
+              <ion-item lines="none">
+                <ion-input label="Título:" label-placement="floating"
+                  fill="solid" placeholder="Ejemplo: casa" type="text"
+                  [formControl]="searchTitle"
+                  (keyup)="search()"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item lines="none">
+                <ion-input label="Precio:" label-placement="floating"
+                  fill="solid" placeholder="Ejemplo: 200.000" type="number"
+                  [formControl]="searchPrice" pattern="[0-9]*"
+                  (keyup)="search()"
+                  min="0"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item lines="none">
+                <ion-input label="Departamento:" label-placement="floating"
+                  fill="solid" placeholder="Ejemplo: Bogota, Antioquia"
+                  type="text"
+                  [formControl]="searchDepartmentControl"
+                  (keyup)="search()"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item lines="none">
+                <ion-input label="Ciudad:" label-placement="floating"
+                  fill="solid" placeholder="Ejemplo: Bogota D.C, Medellín"
+                  type="text"
+                  [formControl]="searchCityControl"
+                  (keyup)="search()"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-item lines="none">
+                <ion-button class="btn" slot="end" shape="round" expand="block"
+                  (click)="clear()">Borrar
+                  <ion-icon name="trash-outline" slot="end"></ion-icon>
+                </ion-button>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+        <div class="card-container" >
+          <div *ngFor="let estate of propiety">
+            <ion-card class="card" >
+              <div class="card__img">
+                <!-- <app-smallmap [longitude]="estate.longitude" [latitude]="estate.latitude" class="map-container"></app-smallmap> -->
+              </div>
+              <ion-card-header class="card__descr-wrapper">
+                <ion-card-title class="card__title">{{estate.title}}</ion-card-title>
+                <div class="card__details">
+                    <ion-icon name="location-outline"></ion-icon>
+                    <ion-card-subtitle>{{estate.department}}</ion-card-subtitle>
+                    <ion-icon name="business-outline"></ion-icon>
+                    <ion-card-subtitle>{{estate.city}}</ion-card-subtitle>
+                  </div>
+              </ion-card-header>
+              <ion-card-content class="card__descr">
+                {{estate.description | slice:0:60}}
+              </ion-card-content>
+              <div class="card__price">{{estate.price | currency}}</div>
+              <div class="card__links">
+                <ion-button fill="clear" type="root" color="dark"
+                  class="card__btn"
+                  (click)="propietyDetails(estate._id!)"><ion-icon
+                    name="link-outline"></ion-icon>
+                </ion-button>
+              </div>
+            </ion-card>
+          </div>
+        </div>
+      </ion-toolbar>
+  </ion-content>
 </ion-content>
+<app-footer></app-footer>

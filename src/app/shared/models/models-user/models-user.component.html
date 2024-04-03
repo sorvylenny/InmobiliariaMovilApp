@@ -1,0 +1,92 @@
+<h1 mat-dialog-title>{{ titleAction }}</h1>
+
+<mat-dialog-content>
+  <form [formGroup]="formUser">
+    <mat-grid-list cols="1" rowHeight="90px">
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre Completo</mat-label>
+          <input matInput formControlName="fullname" autocomplete="off" />
+          <mat-icon matSuffix>account_circle</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Usuario</mat-label>
+          <input matInput formControlName="username" autocomplete="off" />
+          <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Tipo de Documento</mat-label>
+          <mat-select formControlName="documentType">
+            <mat-option *ngFor="let document of listDocument" [value]="document">{{ document }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Número de Documento</mat-label>
+          <input matInput formControlName="documentNumber" autocomplete="off" />
+          <mat-icon matSuffix>badge</mat-icon>
+          <mat-error *ngIf="formUser.get('documentNumber')?.hasError('minlength') && formUser.get('documentNumber')?.touched">
+            Debe ser mínimo 7 dígitos
+          </mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Correo electrónico</mat-label>
+          <input matInput formControlName="email" autocomplete="off" />
+          <mat-icon matSuffix>mail</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Teléfono</mat-label>
+          <input matInput formControlName="phoneNumber" autocomplete="off" />
+          <mat-icon matSuffix>smartphone</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Rol</mat-label>
+          <mat-select formControlName="roles">
+            <mat-option *ngFor="let item of ListRoles" [value]="item">
+              {{ item }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile *ngIf="isNewUser">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Clave</mat-label>
+          <input [type]="hidePassword ? 'password' : 'text'" matInput formControlName="password" autocomplete="off">
+          <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button">
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile *ngIf="isUpdateUser">
+        <mat-form-field appearance="outline">
+          <mat-label>Estado</mat-label>
+          <mat-select formControlName="isActive">
+            <mat-option value="true">Activo</mat-option>
+            <mat-option value="false">Inactivo</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+
+
+    </mat-grid-list>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close color="warn">Volver</button>
+    <button mat-raised-button [disabled]="formUser.invalid" (click)="saveEditUser()">{{buttonAction}}</button>
+
+</mat-dialog-actions>

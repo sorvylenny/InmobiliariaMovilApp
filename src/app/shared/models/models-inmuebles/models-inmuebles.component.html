@@ -1,0 +1,119 @@
+
+<h1 mat-dialog-title>{{ titleAction }}</h1>
+
+<mat-dialog-content>
+  <form [formGroup]="formInmueble">
+    <mat-grid-list cols="1" rowHeight="90px">
+ <mat-grid-tile>
+    <mat-form-field appearance="outline">
+      <mat-label>Propietario</mat-label>
+      <input matInput formControlName="ownerId" [matAutocomplete]="auto"/>
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let owner of filteredOwners | async" [value]="owner">
+          {{ owner.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <div>
+      <button mat-icon-button (click)="openCreateOwnerDialog()">
+        <mat-icon>person_add</mat-icon>
+      </button>
+    </div>
+</mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Título</mat-label>
+          <input matInput formControlName="title" autocomplete="off" />
+          <mat-icon matSuffix>title</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Dirección</mat-label>
+          <input matInput formControlName="address" autocomplete="off" />
+          <mat-icon matSuffix>home</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Departamento</mat-label>
+          <input matInput formControlName="department" [matAutocomplete]="departauto">
+          <mat-icon matSuffix>flag</mat-icon>
+          <mat-autocomplete #departauto="matAutocomplete" [displayWith]="displayFnDepartments" (optionSelected)="onDepartmentSelected($event)">
+            <mat-option *ngFor="let depart of filteredDepartments | async" [value]="depart">
+              {{ depart.name }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+     </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Ciudad</mat-label>
+          <input matInput formControlName="city" [matAutocomplete]="cityAuto">
+          <mat-icon matSuffix>location_city</mat-icon>
+          <mat-autocomplete #cityAuto="matAutocomplete" [displayWith]="displayFnCities">
+            <mat-option *ngFor="let cities of filteredCities | async" [value]="cities">
+              {{ cities.name }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="fill">
+          <mat-label>Descripción del inmueble</mat-label>
+          <textarea matInput formControlName="description" autocomplete="off" style="width: 100%;"></textarea>
+          <mat-icon matSuffix>description</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Latitud</mat-label>
+          <input matInput formControlName="latitude" autocomplete="off" />
+          <mat-icon matSuffix>location-on</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Longitud</mat-label>
+          <input matInput formControlName="longitude" autocomplete="off" />
+          <mat-icon matSuffix>location-on</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Habitaciones</mat-label>
+          <input matInput formControlName="bedrooms" autocomplete="off" type="number" min="0"/>
+          <mat-icon matSuffix><img src="assets/icons8-bedroom-30.png" alt="" class="icon-size"></mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Baños</mat-label>
+          <input matInput formControlName="bathrooms" autocomplete="off" type="number" min="0"/>
+          <mat-icon matSuffix><img src="assets/icons8-bathroom-50.png" alt="" class="icon-size"></mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Closet</mat-label>
+          <input matInput formControlName="closet" autocomplete="off" type="number" min="0"/>
+          <mat-icon matSuffix><img src="assets/armario.png" alt="" class="icon-size"></mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+     <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Precio</mat-label>
+          <input matInput formControlName="price" autocomplete="off" type="number" min="1"/>
+          <mat-icon matSuffix>attach_money</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close color="warn">Volver</button>
+    <button mat-raised-button [disabled]="formInmueble.invalid" (click)="saveEditInmueble()">{{buttonAction}}</button>
+
+</mat-dialog-actions>

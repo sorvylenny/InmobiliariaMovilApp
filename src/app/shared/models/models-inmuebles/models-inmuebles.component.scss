@@ -1,0 +1,18 @@
+mat-form-field{
+  font-family: Roboto, "Helvetica Neue";
+  font-size: 12px;
+}
+
+.icon-size{
+  width: 20px;
+  height: 20px;
+}
+
+textarea{
+  resize: none;
+  --field-sizing: content;
+  max-height: 100px;
+}
+mat-label{
+  font-size: 12px;
+}

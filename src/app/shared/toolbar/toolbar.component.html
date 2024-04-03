@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+   <ion-title (click)="back()">Inmobiliaria FloresM</ion-title>
+    <ion-buttons slot="end" *ngIf="isLoggedIn()">
+      <ion-label class="menu-label">{{ username | titlecase }} | {{ rolesUser }}</ion-label>
+      <ion-button (click)="closeSesion()">
+        <ion-icon name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" *ngIf="!isLoggedIn()">
+      <ion-button (click)="goToIn()">
+        <ion-img src="/assets/Logo.png" alt="logo" style="width: 50px; height: 50px;"></ion-img>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
