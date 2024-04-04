@@ -12,7 +12,8 @@ export class AppComponent implements OnInit, OnDestroy {
   isLoggedIn: boolean = false;
   private authSubscription: Subscription | undefined;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {
+     }
 
   ngOnInit() {
       this.authSubscription = this.authService.isLoggedIn$.subscribe(isLoggedIn => {
@@ -31,4 +32,5 @@ export class AppComponent implements OnInit, OnDestroy {
       this.authService.logout();
       this.router.navigate(['/login']); // Redirige al usuario a la página de inicio de sesión después de cerrar sesión
   }
+
 }

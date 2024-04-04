@@ -25,6 +25,7 @@ export class HomePage implements OnInit, OnDestroy {
   inmueblesEncontrados: boolean = false;
   inmueblesSubscription: Subscription | undefined;
 
+
   constructor(private navCtrl: NavController, private inmueblesServices: InmueblesService) { }
 
   ngOnInit() {

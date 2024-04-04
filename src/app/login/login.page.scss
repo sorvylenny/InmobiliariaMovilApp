@@ -11,7 +11,7 @@
   max-width: 400px !important;
   margin: 2em;
   text-align: center;
-  max-height: 600px;
+  max-height: 650px;
   border-radius: 2rem;
   border: 2px solid #CD5D7D ;
 }
@@ -29,7 +29,16 @@
 .full-width{
   width: 100%;
 }
+.footer {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  margin: 0 auto;
+}
 
+.custom-progress-bar {
+  width: 200px;
+}
 .custom-button[disabled] {
   background-color: rgb(228, 228, 228);
   color: white;
