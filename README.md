@@ -40,10 +40,6 @@ Para correr esta aplicación en tu entorno local, sigue estos pasos:
 
 Para construir la aplicación para producción, ejecuta `ionic build --prod`. Para desplegar la aplicación en dispositivos o emuladores, sigue la [documentación oficial de Ionic](https://ionicframework.com/docs/deployment/play-store) para Android y [App Store](https://ionicframework.com/docs/deployment/app-store) para iOS.
 
-## Contribuciones
-
-Las contribuciones son bienvenidas. Por favor, lee `CONTRIBUTING.md` para más detalles sobre cómo contribuir al proyecto.
-
 ## Autor
 
 Desarrollado por Katherine Flores. Para más información o sugerencias, puedes contactarme en <floresmKatherine@gmail.com>.

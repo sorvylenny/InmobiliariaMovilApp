@@ -72,7 +72,6 @@ export class HomePage implements OnInit, OnDestroy {
     city: this.searchCityControl.value,
     price: this.searchPrice.value
   };
-  console.log(query);
 
 
     const allFieldsEmpty = Object.values(query).every(value => value === '');
@@ -96,7 +95,6 @@ export class HomePage implements OnInit, OnDestroy {
   }
   propietyDetails(_id: string){
     this.navCtrl.navigateForward(['/inmueble-detail', _id]);
-    console.log("id:", _id)
   }
   ngOnDestroy(): void {
     if (this.inmueblesSubscription) {
