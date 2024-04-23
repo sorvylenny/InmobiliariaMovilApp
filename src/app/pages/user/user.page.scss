@@ -1,0 +1,63 @@
+.custom-primary-button{
+  background-color: #a7c5eb !important;
+  font-size: 12px;
+}
+.title {
+  margin: 0px 0px 0px 10px;
+  font-size: 18px;
+}
+
+.card-user, table {
+  margin: 10px auto;
+  background-color: #ffffff;
+  width: 100%;
+  font-size: 12px;
+  font-family: Roboto, "Helvetica Neue";
+  text-align: left;
+}
+
+.full-width{
+  width: 100%;
+}
+
+th {
+  color: #CD5D7D;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-family: Roboto, "Helvetica Neue";
+  font-size: 11px;
+}
+
+td {
+  line-height: 1.2;
+  color: #CD5D7D;
+  font-family: Roboto, "Helvetica Neue";
+  font-size: 10px;
+}
+
+td, th {
+  width: 20%;
+}
+mat-divider {
+  margin-bottom: 10px;
+}
+
+mat-paginator{
+  background-color: #ffffff;
+  color: #CD5D7D;
+  font-family: Roboto, "Helvetica Neue";
+  font-size: 10px;
+  width: 100%;
+}
+.imgs3 {
+  filter: invert(78%) sepia(62%) saturate(337%) hue-rotate(326deg) brightness(80%) contrast(70%);
+}
+.small-button{
+  font-size: 8px;
+}
+
+.small-button mat-icon{
+  font-size: 15px;
+}
+
+

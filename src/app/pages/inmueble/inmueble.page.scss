@@ -1,0 +1,68 @@
+.custom-primary-button{
+  background-color: #A7C5EB !important;
+  font-size: 12px;
+}
+.title {
+  margin: 0px 0px 0px 10px;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.card-propiety {
+  margin: 10px 0px 10px 0px;
+  background-color: #ffffff;
+}
+
+table {
+  width: 90%;
+  background-color: #ffffff;
+}
+
+.full-width {
+  width: 100%;
+  font-size: 12px;
+}
+.hide-on-mobile{
+  font-size: 12px;
+  padding: 4px 8px;
+}
+.description-column .mat-cell {
+  text-align: left;
+}
+
+
+th {
+  text-align: center;
+  color: #CD5D7D;
+  font-weight: 700;
+  text-transform: capitalize;
+  font-size: 12px;
+}
+
+td {
+  text-align: center;
+  line-height: 1.5;
+  color: #CD5D7D;
+  font-weight: 500;
+  font-size: 10px;
+}
+th,td{
+  padding: 5px 10px;
+  width: 20%;
+}
+
+mat-divider {
+  margin-bottom: 10px;
+}
+
+mat-paginator{
+  background-color: #ffffff;
+  color: #CD5D7D;
+}
+
+  .small-button mat-icon{
+    font-size: 15px;
+    padding: 0;
+  }
+

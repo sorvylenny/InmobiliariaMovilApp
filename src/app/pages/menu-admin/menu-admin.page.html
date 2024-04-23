@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-tabs *ngIf="isAdmin()">
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button (click)="navigateToPage1()" target="_blank" >
+          <ion-icon name="apps-outline"></ion-icon>
+          DashBoard
+        </ion-tab-button>
+        <ion-tab-button (click)="navigateToPage2()" target="_blank">
+          <ion-icon name="person-circle-outline"></ion-icon>
+          Usuarios
+        </ion-tab-button>
+        <ion-tab-button (click)="navigateToPage3() "target="_blank">
+          <ion-icon name="business-outline"></ion-icon>
+          Inmuebles
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-header>
