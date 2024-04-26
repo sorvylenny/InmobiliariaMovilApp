@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -36,7 +36,7 @@ export class InmueblePage implements OnInit, AfterViewInit {
   getProperties() {
     this.inmuebleService.allInmuebles().subscribe({
       next: (data: Inmueble[]) => {
-        // Verificar si se recibió una respuesta válida
+        // Verifica si se recibió una respuesta válida
         if (data && data.length > 0) {
           this.dataListProperty.data = data;
         } else {
